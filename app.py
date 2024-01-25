@@ -17,6 +17,8 @@ class Todo(db.Model):
 @app.route("/")
 def home():
     todo_list = Todo.query.all()
+    # Flask Concept #3: Props-sharing via Context
+    # Here, todo_list is the "context" (variable of interest) passed into the base template
     return render_template("base.html", todo_list=todo_list)
 
 
